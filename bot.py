@@ -71,17 +71,17 @@ rxyzdev_initT = {}
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def info(event):
-  await event.reply("**Merhaba Benim Ve Sahibim Hakkında Bilgi\n\nPython: 3.8.2\nKütüphanem: Telethon\n\nSahibim:  Gruplarınızda Üyeleri Etiketlemek için Yaratılmışım**",
+  await event.reply("**Merhaba Ben Grup Veya Kanal Üyelerini Sizin Yerinize Etiketleyebilirim \n\nSahibime Ulaşmak İçin Aşşağıdaki Butona Tıklayın\nOyun & Film Botumuz: @inekgame_bot \n\nBeni Gruba Ekleyerek İşe Başlayabilirsin**",
                     buttons=(
                       [
-                       Button.url('Beni Grubuna Ekle ➕', 'https://t.me/BlackEtiketBot?startgroup=a')
+                       Button.url('➕ Beni Gruba Ekle ➕', 'https://t.me/inek_tagger_bot?startgroup=a')
                       ],
                       [
-                       Button.url('📢 Kanal', 'https://t.me/sohbetikatarsis'),
-                       Button.url('🇹🇷 Sahibim', 'https://t.me/memokra')
+                       Button.url('🎵 Grubumuz', 'https://t.me/sarkilardankesitlerim'),
+                       Button.url('🐄 Grubumuz', 'https://t.me/inekobasiTR')
                       ],
                       [
-                       Button.url('🧑🏻‍💻 Müzik Botu 🧑🏻‍💻', 'https://t.me/blackmuzikbot')
+                       Button.url('👤 Sahip', 'https://t.me/uslanmazmurti')
                       ],
                     ),
                     link_preview=False
@@ -92,7 +92,7 @@ async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
   
-  if event.chat_id in rxyzdev_tagTot:await event.respond(f"❌**Etiket işlemi durduruldu.\n\n Etiketlerin Sayı: {rxyzdev_tagTot[event.chat_id]}**")
+  if event.chat_id in rxyzdev_tagTot:await event.respond(f"❌**Etiketleme işlemi durduruldu.\n\n Etiketlerin Sayısı: {rxyzdev_tagTot[event.chat_id]}**")
 
 
 @client.on(events.NewMessage(pattern="^/start$"))
@@ -103,37 +103,37 @@ async def start(event):
      await client.send_message(-1001752620477, f"ℹ️ **Yeni Kullanıcı -** {ad}")
      return await event.reply(f"**Merhaba \nGrubunuzdakı Üyeleri Etiketleye Bilirim\nKomutlar için Komutlar Düğmesine Tıklaya Bilirsiz**", buttons=(
                       [
-                       Button.inline("Komutlar", data="komutlar")
+                       Button.inline("📗 Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle', 'https://t.me/BlackEtiketBot?startgroup=a'),
-                       Button.url('Kanal', 'https://t.me/Sohbetikatarsis')
+                       Button.url('➕ Beni Gruba Ekle ➕', 'https://t.me/inek_tagger_bot?startgroup=a'),
+                       Button.url('🎮 Oyun & Film Botumuz', 'https://t.me/inekgame_bot')
                       ],
                       [
-                       Button.url('Sahibim', 'https://t.me/memokra')
+                       Button.url('👤 Sahip', 'https://t.me/uslanmazmurti')
                       ],
                     ),
                     link_preview=False)
 
 
   if event.is_group:
-    return await client.send_message(event.chat_id, f"**Beni Grubuna Aldığın için Teşekkürler ✨**")
+    return await client.send_message(event.chat_id, f"**Şimdi Etiketlemeye Başlamam İçin Komut Menüsünden Bir Komut Ver ✨**")
 
 # Başlanğıc Button
 @client.on(events.callbackquery.CallbackQuery(data="start"))
 async def handler(event):
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await event.edit(f"**Merhaba Ben @blacketiketbot\nGrubunuzdakı Üyeleri Etiketleye Bilirim\nKomutlar için Komutlar Düğmesine Tıklaya Bilirsiz**", buttons=(
+     await event.edit(f"**Merhaba Ben İnek Tagger Bot\nGrubunuzdaki Üyeleri Etiketlerim\nKomutlar için 📗 Komutlar Butonuna Tıkla**", buttons=(
                       [
                        Button.inline("Komutlar", data="komutlar")
                       ],
                       [
-                       Button.url('Beni Grubuna Ekle', 'https://t.me/BlackEtiketBot?startgroup=a'),
-                       Button.url('Kanal', 'https://t.me/Sohbetikatarsis')
+                       Button.url('➕ Beni Grubuna Ekle ➕', 'https://t.me/inek_tagger_bot?startgroup=a'),
+                       Button.url('🐄 Grubumuz', 'https://t.me/inekobasiTR')
                       ],
                       [
-                       Button.url('Sahibim', 'https://t.me/memokra')
+                       Button.url('👤 Sahip', 'https://t.me/uslanmazmurti')
                       ],
                     ),
                     link_preview=False)
